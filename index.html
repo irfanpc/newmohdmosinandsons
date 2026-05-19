@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Mohd Mohsin And Sons</title>
+    <meta name="description" content="Discover modern, elegant women's fashion at New Mohd Mohsin And Sons. Shop new arrivals, best sellers, and exclusive offers.">
+    <link rel="icon" href="img/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="#" style="display: flex; align-items: center; gap: 15px; text-decoration: none;">
+                    <img src="img/logo.jpg" alt="New Mohd Mohsin And Bros" class="brand-logo">
+                    <span class="brand-name-header">New Mohd Mohsin & Bros</span>
+                </a>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#kurta-kurti">Kurta / Kurti</a>
+                <a href="#palazzo-sets">Palazzo Sets</a>
+                <a href="#sharara-sets">Sharara Sets</a>
+                <a href="#dupatta">Dupatta</a>
+                <a href="#cotton-collection">Cotton Collection</a>
+            </nav>
+            <div class="header-icons">
+                <i class="fas fa-search" onclick="focusSearch()"></i>
+                <div class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-banner" id="heroSection" style="display: flex; flex-direction: column; background-color: var(--primary-color);">
+        <!-- Full Width Background Media (No overlap) -->
+        <div id="heroMediaContainer" style="width: 100%; max-height: 700px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: var(--primary-color);">
+            <video autoplay muted loop playsinline id="heroVideoBg" style="display: none; width: 100%; height: auto; object-fit: cover;">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-beautiful-woman-in-a-flowing-dress-41000-large.mp4" type="video/mp4">
+            </video>
+            <img id="heroImageBg" src="img/hero.png?v=2" style="display: block; width: 100%; height: auto; object-fit: contain;" alt="Hero Banner">
+        </div>
+        
+        <!-- Dedicated CTA Bar (Solves responsive overlap) -->
+        <div class="hero-cta-bar" style="width: 100%; padding: 30px 20px; text-align: center; background: linear-gradient(to bottom, #13262F, #0b171c); border-top: 2px solid var(--accent-color); border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 2;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px;">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent-color); margin: 0; font-weight: 500; letter-spacing: 2px;">New Mohd Mohsin & Bros</h2>
+                <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: center;">
+                    <button onclick="scrollToShop()" class="btn" style="background-color: var(--accent-color); color: var(--primary-color); padding: 15px 35px; font-weight: 700; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);">Explore Collection</button>
+                    <div id="heroVideoControls" class="hero-video-controls" style="display: none; gap: 10px;">
+                        <button class="btn btn-outline" id="heroPlayPauseBtn" style="width: 48px; height: 48px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; border-color: rgba(197, 160, 89, 0.5); color: var(--accent-color);"><i class="fas fa-pause"></i></button>
+                        <button class="btn btn-outline" id="heroFullscreenBtn" style="width: 48px; height: 48px; padding: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; border-color: rgba(197, 160, 89, 0.5); color: var(--accent-color);"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="collectionsSection" class="collections-section">
+        <div class="container">
+            <h2 class="section-title">Shop by Collection</h2>
+            <div class="collections-grid">
+                <a href="#new-arrivals" class="collection-card">
+                    <img src="img/palazzo.png" id="newArrivalsImg" alt="New Arrivals">
+                    <div class="collection-overlay">
+                        <h3>New Arrivals</h3>
+                    </div>
+                </a>
+                <a href="#best-sellers" class="collection-card">
+                    <img src="img/palazzo.png" alt="Best Sellers">
+                    <div class="collection-overlay">
+                        <h3>Best Sellers</h3>
+                    </div>
+                </a>
+                <a href="#offers" class="collection-card">
+                    <img src="img/kurti.png" alt="Offers / Discounts">
+                    <div class="collection-overlay">
+                        <h3>Offers / Discounts</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            
+            <div class="filters-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+                </div>
+                <div class="filter-selects">
+                    <select id="categoryFilter" onchange="filterProducts()">
+                        <option value="all">All Categories</option>
+                        <option value="Kurta / Kurti">Kurta / Kurti</option>
+                        <option value="Palazzo Sets">Palazzo Sets</option>
+                        <option value="Sharara Sets">Sharara Sets</option>
+                        <option value="Dupatta">Dupatta</option>
+                        <option value="Cotton Collection">Cotton Collection</option>
+                        <option value="New Arrivals">New Arrivals</option>
+                        <option value="Best Sellers">Best Sellers</option>
+                        <option value="Offers">Offers</option>
+                    </select>
+                    <select id="priceFilter" onchange="filterProducts()">
+                        <option value="default">Sort by Price</option>
+                        <option value="low-high">Low to High</option>
+                        <option value="high-low">High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be injected here via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="social-banner-section">
+        <div class="container text-center">
+            <h2 class="section-title">Connect With Us</h2>
+            <p style="color: var(--text-light); margin-bottom: 3rem; margin-top: -1rem;">Follow us on social media for the latest drops, style guides, and exclusive offers.</p>
+            <div class="social-cards-grid">
+                <a href="https://instagram.com" target="_blank" class="social-card instagram-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>@newmohdmohsinandsons</p>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-card youtube-card">
+                    <i class="fab fa-youtube"></i>
+                    <h3>YouTube</h3>
+                    <p>New Mohd Mohsin And Sons Style Guides</p>
+                </a>
+                <a href="https://wa.me/1234567890" target="_blank" class="social-card whatsapp-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>Chat with Stylists</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#"><img src="img/logo.jpg" alt="New Mohd Mohsin And Bros" class="footer-logo"></a>
+                    <p style="color: #aaaaaa; margin-bottom: 1rem; margin-top: 1rem;">Premium women's clothing brand. Minimalist, modern, and elegant.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#kurta-kurti">Kurta / Kurti</a></li>
+                        <li><a href="#palazzo-sets">Palazzo Sets</a></li>
+                        <li><a href="#sharara-sets">Sharara Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <p style="color: #aaaaaa; margin-bottom: 1rem;">Stay updated with our latest collections.</p>
+                    <div class="social-icons">
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 New Mohd Mohsin And Sons. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js?v=2"></script>
+    <script src="js/main.js?v=2"></script>
+</body>
+</html>
